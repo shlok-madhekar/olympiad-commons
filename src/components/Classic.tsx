@@ -18,7 +18,13 @@ export default function Classic() {
     setSel(i);
     if (window.innerWidth < 760) detailRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
-  const step = (d: number) => setSel((s) => (s + d + OLYMPIADS.length) % OLYMPIADS.length);
+  // the arrows only walk through our guides
+  const OURS = [0, 1, 2];
+  const step = (d: number) =>
+    setSel((s) => {
+      const i = OURS.indexOf(s);
+      return i === -1 ? 0 : OURS[(i + d + OURS.length) % OURS.length];
+    });
 
   return (
     <div className="cl">
@@ -35,7 +41,7 @@ export default function Classic() {
 
       <section className="cl-hero">
         <h1>Free guides for<br />every olympiad.</h1>
-        <p>Eight US olympiads, one period. Pick an element.</p>
+        <p>Physics is live. Chemistry and biology are next. Pick an element.</p>
       </section>
 
       <section className="cl-table" aria-label="The table">
@@ -83,9 +89,9 @@ export default function Classic() {
         </div>
 
         <ul className="cl-legend">
-          <li><i className="ours" />Our guide</li>
-          <li><i className="building" />Ours, being written</li>
-          <li><i className="community" />Community guide</li>
+          <li><i className="ours" />Live</li>
+          <li><i className="building" />Being written</li>
+          <li className="muted"><i className="community" />Covered by others</li>
         </ul>
       </section>
 

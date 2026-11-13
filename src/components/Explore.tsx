@@ -34,8 +34,14 @@ export default function Explore() {
     };
   }, []);
 
+  // arrows only walk through our three guides
   const step = useCallback(
-    (d: number) => setSel((s) => (s === null ? 0 : (s + d + OLYMPIADS.length) % OLYMPIADS.length)),
+    (d: number) =>
+      setSel((s) => {
+        const ours = [0, 1, 2];
+        const i = s === null ? -1 : ours.indexOf(s);
+        return i === -1 ? 0 : ours[(i + d + ours.length) % ours.length];
+      }),
     []
   );
 
@@ -126,7 +132,7 @@ export default function Explore() {
       </div>
 
       <div className="ex-hint">
-        <span>Click a glowing element</span>
+        <span>Click a glowing element to see our guides</span>
         <a href="/">Classic view</a>
       </div>
 
