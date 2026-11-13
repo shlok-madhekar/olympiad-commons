@@ -17,7 +17,7 @@ export default function Detail({
     <div className={`dt dt-${theme}`} style={{ "--a": accent } as React.CSSProperties}>
       <div className="dt-head">
         <span className="dt-kicker">
-          {o.subject} · {o.kind === "ours" ? "Live" : "Being written"}
+          {o.subject} · {o.kind === "ours" ? "Live" : o.kind === "building" ? "Being written" : "TBD"}
         </span>
         <h2 className="dt-name">{o.name}</h2>
         <p className="dt-line">{o.line}</p>

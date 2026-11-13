@@ -1,4 +1,4 @@
-export type Kind = "ours" | "building";
+export type Kind = "ours" | "building" | "tbd";
 
 export type Olympiad = {
   id: string;
@@ -47,6 +47,30 @@ export const OLYMPIADS: Olympiad[] = [
     status: "Our guide is being written.",
     stats: [["11", "units"], ["34", "lessons planned"]],
     action: { label: "Help write it", href: REPO },
+  },
+  {
+    id: "ai", symbol: "Ai", exam: "USAAIO", name: "USA AI Olympiad", subject: "AI", kind: "tbd",
+    color: "#5b3fd1", tint: "#e4defa", glow: "#a996ff",
+    line: "Math, Python and machine learning, from a three-hour first round to the selection camp.",
+    path: ["Round 1", "Round 2", "Camp", "IOAI"],
+    status: "Claimed. Next on our list.",
+    action: { label: "Help start it", href: REPO },
+  },
+  {
+    id: "economics", symbol: "Ec", exam: "USAEBO", name: "USA Economics and Business Olympiad", subject: "Economics", kind: "tbd",
+    color: "#9a5b00", tint: "#f3e6cc", glow: "#ffc061",
+    line: "Economics and finance, in two rounds that pick five students for Team USA.",
+    path: ["Round 1", "Round 2", "IEO"],
+    status: "Claimed. Next on our list.",
+    action: { label: "Help start it", href: REPO },
+  },
+  {
+    id: "neuro", symbol: "Nu", exam: "Brain Bee", name: "USA Brain Bee", subject: "Neuroscience", kind: "tbd",
+    color: "#a3335a", tint: "#f5dbe4", glow: "#ff8fb6",
+    line: "Neuroscience, from a local chapter bee to the national championship.",
+    path: ["Local bee", "Nationals", "Intl. Brain Bee"],
+    status: "Claimed. Next on our list.",
+    action: { label: "Help start it", href: REPO },
   },
 ];
 

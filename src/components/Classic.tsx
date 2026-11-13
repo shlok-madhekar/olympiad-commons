@@ -37,7 +37,7 @@ export default function Classic() {
 
       <section className="cl-hero">
         <h1>Free olympiad guides,<br />written by students.</h1>
-        <p>Physics is live. Chemistry and biology are next. Pick one.</p>
+        <p>Physics is live. Chemistry and biology are next, then AI, economics and neuroscience.</p>
       </section>
 
       <section className="cl-table" aria-label="The table">
@@ -70,6 +70,7 @@ export default function Classic() {
               aria-label={`${x.exam}, ${x.subject}`}
             >
               <span className="e-z">{i + 1}</span>
+              {x.kind === "tbd" && <span className="e-tbd">TBD</span>}
               <span className="e-s">{x.symbol}</span>
               <span className="e-x">{x.exam}</span>
             </button>
@@ -94,12 +95,14 @@ export default function Classic() {
         <ul className="cl-legend">
           <li><i className="ours" />Live</li>
           <li><i className="building" />Being written</li>
+          <li><i className="tbd" />TBD</li>
         </ul>
       </section>
 
       <section className="cl-detail" ref={detailRef}>
         <div className="cl-big" style={{ "--c": o.color, "--t": o.tint } as React.CSSProperties} data-kind={o.kind}>
           <span className="e-z">{sel + 1}</span>
+          {o.kind === "tbd" && <span className="e-tbd">TBD</span>}
           <span className="e-s">{o.symbol}</span>
           <span className="e-x">{o.exam}</span>
         </div>
@@ -107,7 +110,7 @@ export default function Classic() {
       </section>
 
       <section className="cl-help">
-        <p>Chemistry and biology are being written now. Want to help?</p>
+        <p>Six guides on the table, one live. Want to help write the rest?</p>
         <a href={REPO} target="_blank" rel="noopener noreferrer" className="cl-btn">Get involved</a>
       </section>
 

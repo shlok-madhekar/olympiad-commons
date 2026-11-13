@@ -119,6 +119,7 @@ export default function Explore() {
                     aria-label={`${ol.exam}, ${ol.subject}`}
                   >
                     <span className="e-z">{idx + 1}</span>
+                    {ol.kind === "tbd" && <span className="e-tbd">TBD</span>}
                     <span className="e-s">{ol.symbol}</span>
                     <span className="e-x">{ol.exam}</span>
                   </button>
