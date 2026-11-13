@@ -59,10 +59,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .cl-el.ours { background: var(--c); color: #fff; border-color: var(--c); }
 .cl-el.building { background: var(--t); color: var(--c); border-color: var(--c); }
-.cl-el.community { background: transparent; color: var(--ink-3); border-color: var(--hair); }
-.cl-el.community .e-s { opacity: 0.75; }
-.cl-el.community:hover { transform: none; box-shadow: none; color: var(--ink-2); border-color: var(--ink-3); }
-.cl-el.community.sel { transform: none; box-shadow: none; color: var(--ink); border-color: var(--ink); }
 .cl-el:hover { transform: translateY(-4px); box-shadow: 0 4px 0 var(--ink); }
 .cl-el.sel { transform: translateY(-3px); box-shadow: 0 4px 0 var(--ink); }
 .cl-el.ours.sel, .cl-el.ours:hover { box-shadow: 0 4px 0 #0d1d66; }
@@ -75,8 +71,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .cl-legend i { display: inline-block; width: 12px; height: 12px; border: 1px solid var(--ink); margin-right: 8px; vertical-align: -1px; }
 .cl-legend i.ours { background: #2343c4; border-color: #2343c4; }
 .cl-legend i.building { background: #d3eae5; border-color: #0b6e66; }
-.cl-legend li.muted { color: var(--ink-3); }
-.cl-legend i.community { border-color: var(--hair); }
 
 /* detail */
 .cl-detail {
@@ -90,7 +84,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .cl-big[data-kind="ours"] { background: var(--c); border-color: var(--c); color: #fff; }
 .cl-big[data-kind="building"] { background: var(--t); border-color: var(--c); color: var(--c); }
-.cl-big[data-kind="community"] { border-color: var(--hair); color: var(--ink-3); }
 .cl-big .e-z { top: 14px; left: 16px; font-size: 14px; }
 .cl-big .e-s { left: 14px; top: 24%; font-size: 6.2rem; }
 .cl-big .e-x { left: 16px; bottom: 14px; font-size: 13px; }
@@ -119,16 +112,12 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .dt-stats { display: flex; gap: 28px; margin-top: 10px; }
 .dt-stats dt { font-weight: 700; font-size: 26px; letter-spacing: -0.04em; line-height: 1; }
 .dt-stats dd { margin-top: 4px; font-family: var(--font-mono), monospace; font-size: 11px; opacity: 0.65; }
-.dt-community { margin-top: 6px; font-size: 14px; opacity: 0.7; max-width: 44ch; }
-.dt-community a { text-decoration: underline; text-underline-offset: 3px; }
 .dt-actions { display: flex; gap: 8px; align-items: center; }
 .dt-btn { display: inline-flex; align-items: center; height: 44px; padding: 0 18px; background: var(--a); color: #fff; font-family: var(--font-mono), monospace; font-size: 13px; transition: filter 0.15s; }
 .dt-btn:hover { filter: brightness(1.12); }
 .dt-nav { width: 44px; height: 44px; border: 1px solid color-mix(in srgb, currentColor 35%, transparent); font-size: 16px; transition: background 0.15s; }
 .dt-nav:hover { background: color-mix(in srgb, currentColor 10%, transparent); }
 .dt-dark .dt-btn { color: #0b0b0c; }
-.dt-quiet { margin-top: 20px; align-items: center; }
-.dt-back { width: auto; padding: 0 16px; font-family: var(--font-mono), monospace; font-size: 12px; }
 .dt-dark .dt-path li:last-child span { color: #0b0b0c; }
 
 /* =====================================================================
@@ -169,9 +158,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .ex-ghost .g-s { position: absolute; left: 6px; bottom: 5px; font-weight: 700; font-size: 17px; letter-spacing: -0.03em; }
 
 .ex-el { text-align: left; color: #fff; border: 1px solid var(--g); background: color-mix(in srgb, var(--c) 70%, #000); box-shadow: 0 0 22px -2px color-mix(in srgb, var(--g) 55%, transparent), inset 0 0 0 1px rgba(255,255,255,0.08); }
-.ex-el.community { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.16); color: rgba(255,255,255,0.5); box-shadow: none; }
-.ready .ex-el.community:hover { transform: translateZ(8px); }
-.ex-el.ours { background: var(--c); box-shadow: 0 0 34px 0 color-mix(in srgb, var(--g) 70%, transparent); }
+.ready .ex-el.ours { background: var(--c); box-shadow: 0 0 34px 0 color-mix(in srgb, var(--g) 70%, transparent); }
 .ex-el .e-z { top: 4px; left: 6px; font-size: 8px; }
 .ex-el .e-s { left: 5px; top: 22%; font-size: 23px; }
 .ex-el .e-x { left: 6px; bottom: 5px; font-size: 7px; opacity: 0.8; }

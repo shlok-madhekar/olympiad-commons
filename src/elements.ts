@@ -1,4 +1,4 @@
-export type Kind = "ours" | "building" | "community";
+export type Kind = "ours" | "building";
 
 export type Olympiad = {
   id: string;
@@ -15,12 +15,11 @@ export type Olympiad = {
   status: string;
   stats?: [string, string][];
   action?: { label: string; href: string };
-  community?: { name: string; href: string };
 };
 
 export const REPO = "https://github.com/shlok-madhekar/olympiad-commons";
 
-/** Period 2: exactly eight slots, exactly eight US olympiads. */
+/** Our guides, placed at the start of period 2. */
 export const OLYMPIADS: Olympiad[] = [
   {
     id: "physics", symbol: "Ph", exam: "USAPhO", name: "US Physics Olympiad", subject: "Physics", kind: "ours",
@@ -48,46 +47,6 @@ export const OLYMPIADS: Olympiad[] = [
     status: "Our guide is being written.",
     stats: [["11", "units"], ["34", "lessons planned"]],
     action: { label: "Help write it", href: REPO },
-  },
-  {
-    id: "math", symbol: "Ma", exam: "USAMO", name: "USA Mathematical Olympiad", subject: "Math", kind: "community",
-    color: "#7a4a12", tint: "#efe3d0", glow: "#f0b46a",
-    line: "Proof-based math, after the AMC and AIME.",
-    path: ["AMC", "AIME", "USAMO", "IMO"],
-    status: "Covered by the community.",
-    community: { name: "USAMO Guide", href: "https://www.usamoguide.com" },
-  },
-  {
-    id: "informatics", symbol: "In", exam: "USACO", name: "USA Computing Olympiad", subject: "Informatics", kind: "community",
-    color: "#5b3a8a", tint: "#e6def2", glow: "#b59cff",
-    line: "Four online contests a year, from Bronze up to Platinum.",
-    path: ["Bronze", "Silver", "Gold", "Platinum", "IOI"],
-    status: "Covered by the community.",
-    community: { name: "USACO Guide", href: "https://usaco.guide" },
-  },
-  {
-    id: "astronomy", symbol: "As", exam: "USAAAO", name: "USA Astronomy and Astrophysics Olympiad", subject: "Astronomy", kind: "community",
-    color: "#1f3a5f", tint: "#dbe3ee", glow: "#8db8ff",
-    line: "Astronomy and astrophysics, mostly solved with physics and math.",
-    path: ["First round", "National round", "Training", "IOAA"],
-    status: "Covered by the community.",
-    community: { name: "USAAAO Guide", href: "https://www.usaaao.guide" },
-  },
-  {
-    id: "earth", symbol: "Es", exam: "USESO", name: "USA Earth Science Olympiad", subject: "Earth Science", kind: "community",
-    color: "#7a3e22", tint: "#f0dfd5", glow: "#ff9e6b",
-    line: "Geology, meteorology, oceanography and astronomy in one exam.",
-    path: ["USESO", "IESO"],
-    status: "Covered by the community.",
-    community: { name: "USESO Guide", href: "https://www.useso.guide" },
-  },
-  {
-    id: "linguistics", symbol: "Li", exam: "NACLO", name: "North American Computational Linguistics Open", subject: "Linguistics", kind: "community",
-    color: "#8a2f4f", tint: "#f1dbe3", glow: "#ff8fb8",
-    line: "Logic puzzles in languages you've never seen.",
-    path: ["Open round", "Invitational", "IOL"],
-    status: "Covered by the community.",
-    community: { name: "NACLO Guide", href: "https://nacloguide.org" },
   },
 ];
 
@@ -118,11 +77,11 @@ export function position(z: number): { row: number; col: number } {
 
 export type Cell = { z: number; symbol: string; row: number; col: number; olympiad?: Olympiad };
 
-/** All 118 slots. Period 2 (z = 3..10) holds the olympiads. */
+/** All 118 slots. The first slots of period 2 hold our guides. */
 export const TABLE: Cell[] = SYMBOLS.map((symbol, i) => {
   const z = i + 1;
   const pos = position(z);
-  const olympiad = z >= 3 && z <= 10 ? OLYMPIADS[z - 3] : undefined;
+  const olympiad = z >= 3 && z < 3 + OLYMPIADS.length ? OLYMPIADS[z - 3] : undefined;
   return { z, symbol, ...pos, olympiad };
 });
 

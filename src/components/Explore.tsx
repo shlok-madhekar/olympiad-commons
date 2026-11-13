@@ -38,9 +38,8 @@ export default function Explore() {
   const step = useCallback(
     (d: number) =>
       setSel((s) => {
-        const ours = [0, 1, 2];
-        const i = s === null ? -1 : ours.indexOf(s);
-        return i === -1 ? 0 : ours[(i + d + ours.length) % ours.length];
+        const n = OLYMPIADS.length;
+        return s === null ? 0 : (s + d + n) % n;
       }),
     []
   );
@@ -75,7 +74,7 @@ export default function Explore() {
 
       <header className="ex-top">
         <h1>Olympiad Commons</h1>
-        <p>Free guides for every olympiad</p>
+        <p>Free olympiad guides, written by students</p>
       </header>
 
       <div className="ex-scene" onClick={() => setSel(null)}>
@@ -132,7 +131,7 @@ export default function Explore() {
       </div>
 
       <div className="ex-hint">
-        <span>Click a glowing element to see our guides</span>
+        <span>Click a glowing element</span>
         <a href="/">Classic view</a>
       </div>
 

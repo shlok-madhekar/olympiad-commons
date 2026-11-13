@@ -8,6 +8,8 @@ const GROUPS = ["1", "2", "13", "14", "15", "16", "17", "18"];
 // short-form table: period 1 and 3 as faint real elements around our period 2
 const P1: (number | null)[] = [1, null, null, null, null, null, null, 2];
 const P3 = [11, 12, 13, 14, 15, 16, 17, 18];
+// rest of period 2 after our guides
+const P2_REST = [6, 7, 8, 9, 10].slice(OLYMPIADS.length - 3);
 
 export default function Classic() {
   const [sel, setSel] = useState(0);
@@ -18,13 +20,7 @@ export default function Classic() {
     setSel(i);
     if (window.innerWidth < 760) detailRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
-  // the arrows only walk through our guides
-  const OURS = [0, 1, 2];
-  const step = (d: number) =>
-    setSel((s) => {
-      const i = OURS.indexOf(s);
-      return i === -1 ? 0 : OURS[(i + d + OURS.length) % OURS.length];
-    });
+  const step = (d: number) => setSel((s) => (s + d + OLYMPIADS.length) % OLYMPIADS.length);
 
   return (
     <div className="cl">
@@ -40,8 +36,8 @@ export default function Classic() {
       </header>
 
       <section className="cl-hero">
-        <h1>Free guides for<br />every olympiad.</h1>
-        <p>Physics is live. Chemistry and biology are next. Pick an element.</p>
+        <h1>Free olympiad guides,<br />written by students.</h1>
+        <p>Physics is live. Chemistry and biology are next. Pick one.</p>
       </section>
 
       <section className="cl-table" aria-label="The table">
@@ -79,6 +75,13 @@ export default function Classic() {
             </button>
           ))}
 
+          {P2_REST.map((z) => (
+            <div key={z} className="cl-ghost">
+              <span className="g-z">{z}</span>
+              <span className="g-s">{symbolOf(z)}</span>
+            </div>
+          ))}
+
           <span className="cl-period">3</span>
           {P3.map((z) => (
             <div key={z} className="cl-ghost fade">
@@ -91,7 +94,6 @@ export default function Classic() {
         <ul className="cl-legend">
           <li><i className="ours" />Live</li>
           <li><i className="building" />Being written</li>
-          <li className="muted"><i className="community" />Covered by others</li>
         </ul>
       </section>
 

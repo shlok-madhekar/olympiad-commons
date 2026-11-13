@@ -17,24 +17,12 @@ export default function Detail({
     <div className={`dt dt-${theme}`} style={{ "--a": accent } as React.CSSProperties}>
       <div className="dt-head">
         <span className="dt-kicker">
-          {o.subject} · {o.kind === "community" ? "Covered by another group" : o.kind === "ours" ? "Our guide, live" : "Our guide, being written"}
+          {o.subject} · {o.kind === "ours" ? "Live" : "Being written"}
         </span>
         <h2 className="dt-name">{o.name}</h2>
         <p className="dt-line">{o.line}</p>
       </div>
 
-      {o.kind === "community" ? (
-        <div className="dt-foot dt-quiet">
-          <p className="dt-community">
-            We don&apos;t have a guide for {o.exam}. The community-run{" "}
-            <a href={o.community?.href} target="_blank" rel="noopener noreferrer">{o.community?.name}</a> covers it.
-          </p>
-          <div className="dt-actions">
-            {onNext && <button className="dt-nav dt-back" onClick={onNext}>Back to our guides →</button>}
-          </div>
-        </div>
-      ) : (
-      <>
       <ol className="dt-path" aria-label="How it works">
         {o.path.map((step, i) => (
           <li key={step}>
@@ -68,8 +56,6 @@ export default function Detail({
           {onNext && <button className="dt-nav" onClick={onNext} aria-label="Next element">→</button>}
         </div>
       </div>
-      </>
-      )}
     </div>
   );
 }
