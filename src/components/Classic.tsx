@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import Detail from "@/components/Detail";
-import { OLYMPIADS, REPO, symbolOf } from "@/elements";
+import { DISCORD, OLYMPIADS, REPO, symbolOf } from "@/elements";
 
 const GROUPS = ["1", "2", "13", "14", "15", "16", "17", "18"];
 // short-form table: period 1 and 3 as faint real elements around our period 2
@@ -30,14 +30,14 @@ export default function Classic() {
           Olympiad Commons
         </a>
         <nav>
-          <a href="/explore">Explore in 3D</a>
+          <a href={DISCORD} target="_blank" rel="noopener noreferrer">Discord</a>
           <a href={REPO} target="_blank" rel="noopener noreferrer">GitHub</a>
         </nav>
       </header>
 
       <section className="cl-hero">
         <h1>Free olympiad guides,<br />written by students.</h1>
-        <p>Physics is live. Chemistry and biology are next, then AI, economics and neuroscience.</p>
+        <p>Physics is live. Chemistry and biology are next, then astronomy, AI, economics and neuroscience.</p>
       </section>
 
       <section className="cl-table" aria-label="The table">
@@ -110,13 +110,15 @@ export default function Classic() {
       </section>
 
       <section className="cl-help">
-        <p>Six guides on the table, one live. Want to help write the rest?</p>
-        <a href={REPO} target="_blank" rel="noopener noreferrer" className="cl-btn">Get involved</a>
+        <p>Seven guides on the table, one live. Help write the rest on Discord.</p>
+        <a href={DISCORD} target="_blank" rel="noopener noreferrer" className="cl-btn">Join the Discord</a>
       </section>
 
       <footer className="cl-foot">
         <span>Olympiad Commons · run by students</span>
-        <span>Not affiliated with any olympiad organizer</span>
+        <span>
+          <a href={REPO} target="_blank" rel="noopener noreferrer">Open source on GitHub</a> · Not affiliated with any olympiad organizer
+        </span>
       </footer>
     </div>
   );

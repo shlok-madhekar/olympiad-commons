@@ -1,9 +1,15 @@
 # Olympiad Commons
 
-Home page for a family of free, open-source science olympiad guides:
-USAPhO Guide (usapho.one, live), USNCO Guide and USABO Guide (in progress).
+Free, open-source olympiad guides, written by students.
 
-The guide list lives in `src/guides.ts`. Add an entry and it shows up on the shelf.
+- **Physics:** [USAPhO Guide](https://usapho.one) (live)
+- **Chemistry:** USNCO Guide (being written)
+- **Biology:** USABO Guide (being written)
+- **Next:** astronomy, AI, economics, neuroscience
+
+Want to help? Join the [Discord](https://discord.gg/KGWAxqxug2).
+
+The table lives in `src/elements.ts`. Add an entry and it takes the next slot in period 2.
 
 ```bash
 npm install

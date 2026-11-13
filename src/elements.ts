@@ -18,6 +18,8 @@ export type Olympiad = {
 };
 
 export const REPO = "https://github.com/shlok-madhekar/olympiad-commons";
+/** The USAPhO Guide server doubles as the Commons server for now (permanent invite). */
+export const DISCORD = "https://discord.gg/KGWAxqxug2";
 
 /** Our guides, placed at the start of period 2. */
 export const OLYMPIADS: Olympiad[] = [
@@ -37,7 +39,7 @@ export const OLYMPIADS: Olympiad[] = [
     path: ["Local", "National", "Camp", "IChO"],
     status: "Our guide is being written.",
     stats: [["17", "units"], ["46", "lessons planned"]],
-    action: { label: "Help write it", href: REPO },
+    action: { label: "Help write it", href: DISCORD },
   },
   {
     id: "biology", symbol: "Bi", exam: "USABO", name: "USA Biolympiad", subject: "Biology", kind: "building",
@@ -46,7 +48,7 @@ export const OLYMPIADS: Olympiad[] = [
     path: ["Open", "Semifinal", "Finals", "IBO"],
     status: "Our guide is being written.",
     stats: [["11", "units"], ["34", "lessons planned"]],
-    action: { label: "Help write it", href: REPO },
+    action: { label: "Help write it", href: DISCORD },
   },
   {
     id: "ai", symbol: "Ai", exam: "USAAIO", name: "USA AI Olympiad", subject: "AI", kind: "tbd",
@@ -54,7 +56,7 @@ export const OLYMPIADS: Olympiad[] = [
     line: "Math, Python and machine learning, from a three-hour first round to the selection camp.",
     path: ["Round 1", "Round 2", "Camp", "IOAI"],
     status: "Claimed. Next on our list.",
-    action: { label: "Help start it", href: REPO },
+    action: { label: "Help start it", href: DISCORD },
   },
   {
     id: "economics", symbol: "Ec", exam: "USAEBO", name: "USA Economics and Business Olympiad", subject: "Economics", kind: "tbd",
@@ -62,7 +64,7 @@ export const OLYMPIADS: Olympiad[] = [
     line: "Economics and finance, in two rounds that pick five students for Team USA.",
     path: ["Round 1", "Round 2", "IEO"],
     status: "Claimed. Next on our list.",
-    action: { label: "Help start it", href: REPO },
+    action: { label: "Help start it", href: DISCORD },
   },
   {
     id: "neuro", symbol: "Nu", exam: "Brain Bee", name: "USA Brain Bee", subject: "Neuroscience", kind: "tbd",
@@ -70,7 +72,15 @@ export const OLYMPIADS: Olympiad[] = [
     line: "Neuroscience, from a local chapter bee to the national championship.",
     path: ["Local bee", "Nationals", "Intl. Brain Bee"],
     status: "Claimed. Next on our list.",
-    action: { label: "Help start it", href: REPO },
+    action: { label: "Help start it", href: DISCORD },
+  },
+  {
+    id: "astronomy", symbol: "As", exam: "USAAAO", name: "USA Astronomy and Astrophysics Olympiad", subject: "Astronomy", kind: "tbd",
+    color: "#1f4f8a", tint: "#dce6f3", glow: "#8db8ff",
+    line: "Astrophysics built on the mechanics, optics and thermal physics you already know.",
+    path: ["First round", "National round", "Training", "IOAA"],
+    status: "Claimed. Next on our list.",
+    action: { label: "Help start it", href: DISCORD },
   },
 ];
 
