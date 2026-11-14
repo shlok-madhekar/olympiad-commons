@@ -37,7 +37,7 @@ export default function Classic() {
 
       <section className="cl-hero">
         <h1>Free olympiad guides,<br />written by students.</h1>
-        <p>Physics is live. Chemistry and biology are next, then astronomy, AI, economics and neuroscience.</p>
+        <p>Physics is live. Chemistry, biology and astronomy are being written, then AI, economics and neuroscience.</p>
       </section>
 
       <section className="cl-table" aria-label="The table">
